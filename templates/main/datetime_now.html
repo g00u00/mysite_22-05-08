@@ -1,0 +1,20 @@
+{% extends '../mysite/base.html'%}
+
+{% block title %}main/date_time{% endblock %}
+
+{% block nav_second %}
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="../">main</a></li>
+        <li class="nav-item"><a class="nav-link" href="../datetime_nov">main/datetime_nov</a></li>
+        <li class="nav-item"><a class="nav-link disabled">Disabled</a></li>
+    </ul>
+{% endblock %}
+
+
+{% block content %}
+<h5>content_main_date_time</h5>
+{% for i in list_main %}
+{{ i }}
+{% endfor %}
+{% endblock %}
+

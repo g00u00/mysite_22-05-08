@@ -1,0 +1,30 @@
+{% extends '../mysite/base.html' %}
+
+{% block title %}main/list_main{% endblock %}
+
+{% block nav_second %}
+<ul class="nav">
+    <li class="nav-item"><a class="nav-link" href="{% url 'main:index' %}">main:index</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'main:list_main' %}">main:list_main</a></li>
+</ul>
+{% endblock %}
+
+
+{% block content %}
+<h5>contant_main_list_main</h5>
+
+<br>list_main
+<br>{{list_main}}
+{% for i in list_main %}
+{{ i }}
+{% endfor %}
+
+<br>
+<br>dict_main<br>
+{{ dict_main}}
+<br>{{ dict_main.x }}
+<br>{{ dict_main.y }}
+{% for key, value in dict_main.items  %}
+<br>{{ key }} = {{value}}
+{% endfor %}
+{% endblock %}

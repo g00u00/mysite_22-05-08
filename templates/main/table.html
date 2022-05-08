@@ -1,0 +1,31 @@
+{% extends '../mysite/base.html' %}
+
+{% block title %}main/table{% endblock %}
+
+
+{% block content %}
+<h5>content_main_table</h5>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">pk</th>
+        <th scope="col">Формулировка</th>
+        <th scope="col">A</th>
+        <th scope="col">B</th>
+        <th scope="col">C</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in rows %}
+        <tr>
+            {% for item in row %}
+            <td>
+                {{ item }}
+            </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    <tbody>
+</table>
+{% endblock %}

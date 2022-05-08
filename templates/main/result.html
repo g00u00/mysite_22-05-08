@@ -1,0 +1,31 @@
+{% extends '../mysite/base.html' %}
+
+{% block title %}main/result{% endblock %}
+
+{% block content %}
+<h5>content_main_result</h5>
+<h6>
+    {% for item in task_main %}
+    {{ item }}
+    {% endfor %}
+</h6>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">A</th>
+        <th scope="col">B</th>
+        <th scope="col">C</th>
+        <th scope="col">Результат</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        {% for item in list_main %}
+        <td>
+            {{ item }}
+        </td>
+        {% endfor %}
+    </tr>
+    <tbody>
+</table>
+{% endblock %}
