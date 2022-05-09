@@ -1,1 +1,5 @@
-.bgc {background-color:red}
+.bgc {background-color:red
+}
+input {width: 90%;
+    border-style: hidden;
+}

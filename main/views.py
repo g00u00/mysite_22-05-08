@@ -66,7 +66,6 @@ def table(request):
     return render(request, 'main/table.html', context)
 
 def table_filter(request):
-    #rows = Abc.objects.values_list()
     fields = Abc.objects.values()[0].keys()
     values = Abc.objects.values_list().filter(c=3, a=1).order_by('-id')
     print('\nfields:\n', fields)

@@ -4,6 +4,7 @@
 
 {% block content %}
 <h5>content_main_form_create</h5>
+
 {% load widget_tweaks %}
 <form method="POST">
     {% csrf_token %}
@@ -43,6 +44,23 @@
             </div>
         </div>
     </div>
-
 </form>
+
+<!--
+
+<form method="POST">
+    {% csrf_token %}
+    <table class="table table-bordered border-secondary">
+        {{form}}
+        <tr>
+            <th><label for="id_b"></label></th>
+            <td>
+                <input type="submit">
+            </td>
+        </tr>
+    </table>
+</form>
+-->
+
+
 {% endblock %}
