@@ -5,7 +5,7 @@
 {% block content %}
 <h5>content_main_result</h5>
 <h6>
-    {% for item in task_main %}
+    {% for item in list_tasks %}
     {{ item }}
     {% endfor %}
 </h6>
@@ -20,7 +20,7 @@
     </thead>
     <tbody>
     <tr>
-        {% for item in list_main %}
+        {% for item in list_data %}
         <td>
             {{ item }}
         </td>

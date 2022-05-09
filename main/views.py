@@ -28,13 +28,12 @@ def form_create(request):
         form = CreateAbcForm(request.POST)
         if form.is_valid():
             form.save()
-            print("\nform:\n", form)
+            print("\nform_post:\n", form)
             return redirect('main:result')
     else:
         print("else:\n")
         form = CreateAbcForm()
-    print('\nform:\n', form)
-
+        print('\nform:\n', form)
     context = {
         'form': form
     }
@@ -43,29 +42,37 @@ def form_create(request):
 
 
 def result(request):
-    # rows = Abc.objects.values_list()
-    rows = Abc.objects.values_list()
-    for row in rows:
-        list_main = [row[2], row[3], row[4]]
-        if list_main[0] + list_main[1] == list_main[2]:
-            result = "равна"
-        else:
-            result = "не равна"
-        list_main.append(result)
-        task_main = list()
-        task_main.append(row[1])
-        print(row[1])
-        print('task_main:', task_main,end=' ')
-        print('list_main_result: ', list_main)
+    row = Abc.objects.values_list().last()
+    list_data = [row[2], row[3], row[4]]
+    if list_data[0] + list_data[1] == list_data[2]:
+        result = "равна"
+    else:
+        result = "не равна"
+    list_data.append(result)
+    list_tasks = list()
+    list_tasks.append(row[1])
+    print(row[1])
+    print('list_tasks:', list_tasks,end=' ')
+    print('list_main_result: ', list_data)
 
-    context = {'task_main': task_main, 'list_main': list_main}
+    context = {'list_tasks': list_tasks, 'list_data': list_data}
     return render(request, 'main/result.html', context)
 
 def table(request):
     rows = Abc.objects.values_list()
-    print(rows)
+    #rows = Abc.objects.values_list().filter(c=0).order_by('-id')
+    print('\nrows:\n', rows)
     context = {'rows': rows}
     return render(request, 'main/table.html', context)
+
+def table_filter(request):
+    #rows = Abc.objects.values_list()
+    fields = Abc.objects.values()[0].keys()
+    values = Abc.objects.values_list().filter(c=3, a=1).order_by('-id')
+    print('\nfields:\n', fields)
+    print('\nvalues:\n', values)
+    context = {'fields': fields, 'values': values}
+    return render(request, 'main/table_filter.html', context)
 
 
 def datetime_nov(request):

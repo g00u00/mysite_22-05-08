@@ -1,0 +1,30 @@
+{% extends '../mysite/base.html' %}
+
+{% block title %}main/table{% endblock %}
+
+
+{% block content %}
+<h5>main/table_filter</h5>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        {% for item in fields %}
+        <th scope="col">{{ item }}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for row in values %}
+    <tr>
+        {% for item in row %}
+        <td>
+            {{ item }}
+        </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    <tbody>
+</table>
+{% endblock %}

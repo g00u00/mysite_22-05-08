@@ -8,5 +8,6 @@ urlpatterns = [
     path('form_create/', views.form_create, name='form_create'),
     path('result/', views.result, name='result'),
     path('table/', views.table, name='table'),
+    path('table_filter/', views.table_filter, name='table_filter'),
     path('datetime_nov/', views.datetime_nov, name='datetime_nov'),
 ]
