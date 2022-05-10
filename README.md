@@ -26,6 +26,10 @@ deactivate
 
 ------------
 
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8000
+
+-------------=
+
 pip freeze > requirements.txt
 
 pip install -r requirements.txt
