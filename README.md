@@ -32,3 +32,8 @@ pip install -r requirements.txt
 
 --------------------
 
+https://www.djbook.ru/rel1.8/ref/models/
+
+https://docs.djangoproject.com/en/4.0/topics/db/models/
+
+https://docs.djangoproject.com/en/4.0/ref/models/
