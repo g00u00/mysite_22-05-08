@@ -1,6 +1,7 @@
 /.ssh/*
 /.idea/*
 /venv/*
+*/__pycache__/*
 id_rsa
 id_rsa.pub
 .viminfo

@@ -14,7 +14,7 @@ class Abc(models.Model):
 # python manage.py makemigrations
 
 # python manage.py shell
-#
+# from django.db import models
 # from main.models import *
 # from main.models import Abc
 # Abc.objects.all()
@@ -25,7 +25,8 @@ class Abc(models.Model):
 # Abc.objects.values_list().get(c=1)
 # Abc.objects.values_list().filter(c=0)
 # Abc.objects.values_list().order_by('c')
-# Abc.objects.values_list().filter(c = 0).order_by('-id')
+# Abc.objects.values_list().filter(c = 0).order_by('-id')[:2]
+#Abc.objects.values_list().filter(c__lte=2).order_by('-id')
 # dir(Abc.objects.values_list())
 # Abc.objects.values_list()._values('a')[1]
 # int(Abc.objects.values_list('c')[1][0]) + 15
