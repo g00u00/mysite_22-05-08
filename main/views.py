@@ -43,6 +43,7 @@ def form_create(request):
 
 def result(request):
     row = Abc.objects.values_list().last()
+    print("\nrow: \n", row)
     list_data = [row[2], row[3], row[4]]
     if list_data[0] + list_data[1] == list_data[2]:
         result = "равна"
