@@ -4,28 +4,28 @@
 
 
 {% block content %}
-<h5>content_main_table</h5>
+<h5>main/table</h5>
 
 <table class="table table-bordered">
     <thead>
     <tr>
-        <th scope="col">pk</th>
-        <th scope="col">Формулировка</th>
-        <th scope="col">A</th>
-        <th scope="col">B</th>
-        <th scope="col">C</th>
+        {% for item in fields %}
+        <th scope="col">{{ item }}</th>
+        {% endfor %}
     </tr>
     </thead>
+
     <tbody>
-    {% for row in rows %}
-        <tr>
-            {% for item in row %}
-            <td>
-                {{ item }}
-            </td>
-            {% endfor %}
-        </tr>
+    {% for row in values %}
+    <tr>
+        {% for item in row %}
+        <td>
+            {{ item }}
+        </td>
+        {% endfor %}
+    </tr>
     {% endfor %}
     <tbody>
 </table>
 {% endblock %}
+

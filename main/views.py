@@ -1,4 +1,7 @@
-import datetime
+import os, sys
+import cgi, cgitb
+import time, datetime
+from django.utils import timezone
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Abc
@@ -27,8 +30,12 @@ def form_create(request):
     if request.method == 'POST':
         form = CreateAbcForm(request.POST)
         if form.is_valid():
-            form.save()
             print("\nform_post:\n", form)
+            form.save()
+            x = Abc.objects.last()
+            x.pub_date = timezone.now()
+            x.save()
+            print('\nx\n', x, "\nxx\n")
             return redirect('main:result')
     else:
         print("else:\n")
@@ -42,6 +49,14 @@ def form_create(request):
 
 
 def result(request):
+    print("date:", time.strftime('%Y-%m-%d %H:%M'))
+    print("os.environ:", os.environ)
+    # print("REMOTE_ADDR:", os.environ["REMOTE_ADDR"])
+    print ("\nАнализ строки запроса")
+    form = cgi.FieldStorage()
+    print("form: ", form)
+    print ("ключи(form.keys):", form.keys())
+
     row = Abc.objects.values_list().last()
     print("\nrow: \n", row)
     list_data = [row[2], row[3], row[4]]
@@ -60,10 +75,11 @@ def result(request):
     return render(request, 'main/result.html', context)
 
 def table(request):
-    rows = Abc.objects.values_list()
-    #rows = Abc.objects.values_list().filter(c=0).order_by('-id')
-    print('\nrows:\n', rows)
-    context = {'rows': rows}
+    fields = Abc.objects.values()[0]
+    values = Abc.objects.values_list()
+    print('\nfields:\n', fields)
+    print('\nvalues:\n', values)
+    context = {'fields': fields, 'values': values}
     return render(request, 'main/table.html', context)
 
 def table_filter(request):
