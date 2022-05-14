@@ -1,16 +1,22 @@
-from datetime import date
 from django.db import models
+from datetime import date
 from django.utils import timezone
 
+
+# python manage.py dumpdata main > main.json
+# python manage.py loaddata main.json
+
 class Abc(models.Model):
-    task = models.CharField(default="Равна ли С сумме A и B?", max_length=256)
-    a = models.IntegerField(default=0)
-    b = models.IntegerField(default=0)
-    c = models.IntegerField(default=0)
-    pub_date = models.DateTimeField(default=timezone.now())
+    task = models.CharField("Задание1",default="Равна ли С сумме A и B?", max_length=256)
+    a = models.IntegerField("A1", default=0)
+    b = models.IntegerField("B1", default=0)
+    c = models.IntegerField("C1", default=0)
+    pub_date = models.DateTimeField("Дата1", default=timezone.now())
 
-
-#pub_date = models.DateTimeField(default=timezone.now())
+    class Meta:
+        verbose_name =  'Задание'
+        verbose_name_plural = 'Задания'
+#    pub_date = models.DateTimeField(default=timezone.now())
 #    pub_date = models.DateTimeField(default=date.today())
 
     def __str__(self):
