@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 python manage.py shell
 from main.models import Abc
 Abc.objects.values_list()
