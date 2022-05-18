@@ -1,3 +1,6 @@
 
-
 https://django.fun/docs/django/ru/3.1/topics/http/urls/
+https://django.fun/tutorials/django-3-tutorial-crud-example-mysql-and-bootstrap/
+https://django.fun/tutorials/sozdajte-rest-api-za-30-minut-s-pomoshyu-django-rest-framework/?
+https://django.readthedocs.io/en/stable/ref/models/fields.html#django.db.models.ManyToManyField
+https://tutorial.djangogirls.org/ru/django_start_project/

@@ -19,7 +19,8 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.index, name='index'), # выбираем ф-ию из файла
+    # path('', views.index, name='index'), # выбираем ф-ию из файла
+    path('', views.base, name='base'), # выбираем ф-ию из файла
     path('base/', views.base, name='base'), # выбираем ф-ию из файла
     path('main/', include('main.urls')), # отслеживаем, включаем из ...
     path('admin/', admin.site.urls),

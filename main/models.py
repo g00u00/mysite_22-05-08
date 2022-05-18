@@ -7,11 +7,12 @@ from django.utils import timezone
 # python manage.py loaddata main.json
 
 class Abc(models.Model):
-    task = models.CharField("Задание1",default="Равна ли С сумме A и B?", max_length=256)
-    a = models.IntegerField("A1", default=0)
-    b = models.IntegerField("B1", default=0)
-    c = models.IntegerField("C1", default=0)
-    pub_date = models.DateTimeField("Дата1", default=timezone.now())
+    id = models.IntegerField(verbose_name = 'Первичный', primary_key=True)
+    task = models.CharField(verbose_name = 'Содержание задания (vn)',default="Равна ли С сумме A и B?", max_length=256)
+    a = models.IntegerField(verbose_name = 'A', default=0)
+    b = models.IntegerField(verbose_name = 'B', default=0)
+    c = models.IntegerField(verbose_name = 'C', default=0)
+    pub_date = models.DateTimeField(verbose_name =  'Дата', default=timezone.now())
 
     class Meta:
         verbose_name =  'Задание'
@@ -36,6 +37,7 @@ class Abc(models.Model):
 # from django.db import models
 # from main.models import *
 # from main.models import Abc
+#Abc._meta.get_field('a').verbose_name
 # Abc.objects.all()
 # dir(Abc.objects)
 # Abc.objects.values_list()

@@ -75,6 +75,8 @@ def result(request):
     return render(request, 'main/result.html', context)
 
 def table(request):
+    verbose_name = Abc._meta.verbose_name
+    print('\nverbose_name: ', verbose_name)
     fields = Abc.objects.values()[0]
     values = Abc.objects.values_list()
     print('\nfields:\n', fields)
@@ -84,8 +86,8 @@ def table(request):
 
 def table_filter(request):
     fields = Abc.objects.values()[0].keys()
-    values = Abc.objects.values_list().filter(c=3, a=1).order_by('-id')
     print('\nfields:\n', fields)
+    values = Abc.objects.values_list().filter(c=3, a=1).order_by('-id')
     print('\nvalues:\n', values)
     context = {'fields': fields, 'values': values}
     return render(request, 'main/table_filter.html', context)
