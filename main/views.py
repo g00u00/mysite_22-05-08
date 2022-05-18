@@ -78,10 +78,14 @@ def table(request):
     verbose_name = Abc._meta.verbose_name
     print('\nverbose_name: ', verbose_name)
     fields = Abc.objects.values()[0]
-    values = Abc.objects.values_list()
+    verbose_fields=list()
+    for field in fields:
+        verbose_fields.append(Abc._meta.get_field(field).verbose_name)
     print('\nfields:\n', fields)
+    print('\nverbose_fields:\n', verbose_fields)
+    values = Abc.objects.values_list()
     print('\nvalues:\n', values)
-    context = {'fields': fields, 'values': values}
+    context = {'verbose_name': verbose_name, 'verbose_fields': verbose_fields, 'values': values}
     return render(request, 'main/table.html', context)
 
 def table_filter(request):

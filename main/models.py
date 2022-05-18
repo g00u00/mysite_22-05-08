@@ -7,16 +7,16 @@ from django.utils import timezone
 # python manage.py loaddata main.json
 
 class Abc(models.Model):
-    id = models.IntegerField(verbose_name = 'Первичный', primary_key=True)
-    task = models.CharField(verbose_name = 'Содержание задания (vn)',default="Равна ли С сумме A и B?", max_length=256)
-    a = models.IntegerField(verbose_name = 'A', default=0)
-    b = models.IntegerField(verbose_name = 'B', default=0)
-    c = models.IntegerField(verbose_name = 'C', default=0)
-    pub_date = models.DateTimeField(verbose_name =  'Дата', default=timezone.now())
+    id = models.IntegerField('Первичный ключ', primary_key=True)
+    task = models.CharField('Содержание задания',default="Равна ли С сумме A и B?", max_length=256)
+    a = models.IntegerField('A', default=0)
+    b = models.IntegerField('B', default=0)
+    c = models.IntegerField('C', default=0)
+    pub_date = models.DateTimeField('Дата выполнения', default=timezone.now())
 
     class Meta:
-        verbose_name =  'Задание'
-        verbose_name_plural = 'Задания'
+        verbose_name =  'Таблица выполненных заданий'
+        verbose_name_plural = 'Таблицы выполненных заданий'
 #    pub_date = models.DateTimeField(default=timezone.now())
 #    pub_date = models.DateTimeField(default=date.today())
 

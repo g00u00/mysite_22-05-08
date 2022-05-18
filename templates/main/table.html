@@ -6,10 +6,12 @@
 {% block content %}
 <h5>main/table</h5>
 
+
+<h5>{{verbose_name}}</h5>
 <table class="table table-bordered">
     <thead>
     <tr>
-        {% for item in fields %}
+        {% for item in verbose_fields %}
         <th scope="col">{{ item }}</th>
         {% endfor %}
     </tr>
